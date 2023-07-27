@@ -29,4 +29,11 @@ add_action('plugins_loaded', function () {
             'userId' => $isLoggedIn ? get_current_user_id() : null,
         ];
     }
+
+    function custom_login_redirect()
+    {
+        return 'home_url()?nextJsAdminRedirect=http://localhost:3000/';
+    }
+
+    add_filter('login_redirect', 'custom_login_redirect');
 });
